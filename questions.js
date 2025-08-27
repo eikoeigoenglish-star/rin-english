@@ -98,6 +98,156 @@ const QUESTIONS = [
     q: "The board sought to (      ) the hemorrhaging by divesting noncore assets.",
     choices: ["stanch", "stanchion", "stanchless", "standoff"],
     answer: 0
+  },
+  {
+    q: "The committee issued a (　　　) rebuke, naming dates and figures.",
+    choices: ["amphibious", "sapid", "crepuscular", "categorical"],
+    answer: 3
+  },
+  {
+    q: "Investors reacted with (　　　) when the CEO resigned unexpectedly.",
+    choices: ["consternation", "salubrity", "prolixity", "temerity"],
+    answer: 0
+  },
+  {
+    q: "The report was dismissed as (　　　)—glossy charts with no substance.",
+    choices: ["meretricious", "punctilious", "salubrious", "litigious"],
+    answer: 0
+  },
+  {
+    q: "His explanation was so (　　　) that no one could follow it.",
+    choices: ["tortuous", "winsome", "bucolic", "stygian"],
+    answer: 0
+  },
+  {
+    q: "They reached a (　　　) after marathon talks, averting a strike.",
+    choices: ["miasma", "mise-en-scène", "diatribe", "détente"],
+    answer: 3
+  },
+  {
+    q: "Her remarks were (　　　) to the committee’s mandate.",
+    choices: ["jejune", "germane", "fulsome", "venal"],
+    answer: 1
+  },
+  {
+    q: "Her tone was outwardly polite but unmistakably (　　　).",
+    choices: ["minatory", "emollient", "soporific", "lupine"],
+    answer: 0
+  },
+  {
+    q: "The historian (　　　) the myth, tracing its invention to the 1920s.",
+    choices: ["desiccated", "demythologized", "deliquesced", "demobilized"],
+    answer: 1
+  },
+  {
+    q: "The guidelines were intentionally (　　　), granting wide discretion to local authorities.",
+    choices: ["indeterminate", "ineluctable", "indelible", "inchoate"],
+    answer: 0
+  },
+  {
+    q: "By any (　　　) calculus, the program has failed.",
+    choices: ["sober", "febrile", "risible", "jejune"],
+    answer: 0
+  },
+  {
+    q: "Her voice had a (　　　) calm that steadied the room.",
+    choices: ["fungible", "doctrinaire", "faddish", "preternatural"],
+    answer: 3
+  },
+  {
+    q: "The court refused to (　　　) the precedent, calling it settled law.",
+    choices: ["recuse", "remunerate", "repatriate", "repudiate"],
+    answer: 3
+  },
+  {
+    q: "His memoir is a (　　　)—names altered, truths massaged.",
+    choices: ["roman à clef", "coup de grâce", "fait accompli", "bête noire"],
+    answer: 0
+  },
+  {
+    q: "The proposal found a (　　　) reception among career diplomats.",
+    choices: ["glacial", "torrid", "venous", "vespertine"],
+    answer: 0
+  },
+  {
+    q: "The data were (　　　) to the narrative the company preferred.",
+    choices: ["inimical", "inchoate", "invidious", "inerrant"],
+    answer: 0
+  },
+  {
+    q: "Her analysis (　　　) the usual binaries, proposing a third path.",
+    choices: ["transgressed", "translated", "transposed", "transcended"],
+    answer: 3
+  },
+  {
+    q: "The film’s (　　　) aesthetic—spare sets and long silences—may alienate some viewers.",
+    choices: ["austere", "gustatory", "febrile", "fulsome"],
+    answer: 0
+  },
+  {
+    q: "The charity’s finances were (　　　) behind layers of shell companies.",
+    choices: ["obfuscated", "ossified", "obviated", "obliterated"],
+    answer: 0
+  },
+  {
+    q: "He offered an (　　　) apology, taking full responsibility.",
+    choices: ["unbidden", "unalloyed", "unmoored", "unqualified"],
+    answer: 3
+  },
+  {
+    q: "A (　　　) of lawsuits followed the defective release.",
+    choices: ["spate", "sprite", "spume", "sprawl"],
+    answer: 0
+  },
+  {
+    q: "The editor cut the (　　　) chapter that added only ornament.",
+    choices: ["otiose", "onerous", "osmotic", "Olympian"],
+    answer: 0
+  },
+  {
+    q: "She remained (　　　) in the face of provocation.",
+    choices: ["impervious", "impermeable", "impecunious", "imperturbable"],
+    answer: 3
+  },
+  {
+    q: "The candidate’s (　　　) about “renewal” soon curdled into patronage.",
+    choices: ["confluence", "deliquescence", "concupiscence", "grandiloquence"],
+    answer: 3
+  },
+  {
+    q: "The village still observes (　　　) customs outlawed elsewhere.",
+    choices: ["analeptic", "anemic", "anionic", "anachronistic"],
+    answer: 3
+  },
+  {
+    q: "He answered with (　　　) brevity: No.",
+    choices: ["lapidate", "lepidopteran", "lateritic", "lapidary"],
+    answer: 3
+  },
+  {
+    q: "Jurors were warned not to (　　　) about the case online.",
+    choices: ["opiate", "opaline", "ophiolite", "opine"],
+    answer: 3
+  },
+  {
+    q: "The novel’s (　　　) narrator keeps confessing, then retracting.",
+    choices: ["mercenary", "mercantile", "meridian", "mercurial"],
+    answer: 3
+  },
+  {
+    q: "The software’s (　　　) defaults collect more data than users realize.",
+    choices: ["insidious", "insipid", "insolvent", "insular"],
+    answer: 0
+  },
+  {
+    q: "He offered a (　　　) defense: precise, limited, lawyerly.",
+    choices: ["legalese", "legible", "leguminous", "legalistic"],
+    answer: 3
+  },
+  {
+    q: "The findings remain (　　　) until replicated independently.",
+    choices: ["providential", "probiotic", "probative", "provisional"],
+    answer: 3
   }
 ];
 
