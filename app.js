@@ -87,19 +87,19 @@ function renderQuestion() {
     $choices.appendChild(li);
   });
 
-  $nextBtn.disabled = true;
-  $nextBtn.textContent = (idx + 1 === total) ? "結果を見る ▶" : "次へ ▶";
-  $nextWrap.classList.add('d-none');   // ★ 追加：非表示に
-  $nextBtn.onclick = () => { idx++; renderQuestion(); };
+$nextBtn.disabled = true;
+$nextBtn.textContent = (idx + 1 === total) ? "結果を見る ▶" : "次へ ▶";
+$nextWrap.classList.add('d-none');   // ★ 追加：非表示に
+$nextBtn.onclick = () => { idx++; renderQuestion(); };
 }
 
 function onSelect(choiceIdx) {
   if (answers[idx] !== null) return;   // 多重クリック防止
   answers[idx] = choiceIdx;
 
-  document.querySelectorAll("#choices button").forEach(b => b.disabled = true);
-  $nextBtn.disabled = false;
-  $nextWrap.classList.remove('d-none');
+document.querySelectorAll("#choices button").forEach(b => b.disabled = true);
+$nextBtn.disabled = false;
+$nextWrap.classList.remove('d-none');
 }
 
 function showResult() {
