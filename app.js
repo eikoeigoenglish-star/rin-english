@@ -77,15 +77,15 @@ function renderQuestion() {
 
   $choices.innerHTML = "";
   it.choices.forEach((text, i) => {
-    const li  = document.createElement("li");
-    li.className = "list-group-item list-group-item-action";
-    const btn = document.createElement("button"); // 要件：button要素
-    btn.className = "w-100 text-start";
-    btn.textContent = `${"ABCD"[i]}. ${text}`;
-    btn.addEventListener("click", () => onSelect(i, li));   // ← li を渡す
-    li.appendChild(btn);
-    $choices.appendChild(li);
-  });
+  const li  = document.createElement("li");
+  li.className = "list-group-item list-group-item-action";
+  const btn = document.createElement("button");
+  btn.className = "w-100 text-start";
+  btn.textContent = `${"ABCD"[i]}. ${text}`;
+  btn.addEventListener("click", () => onSelect(i, li));
+  li.appendChild(btn);
+  $choices.appendChild(li);
+});
 
   $nextBtn.disabled = true;
   $nextBtn.textContent = (idx + 1 === total) ? "結果を見る ▶" : "次へ ▶";
