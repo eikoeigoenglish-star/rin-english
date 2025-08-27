@@ -1,0 +1,6 @@
+#question { white-space: pre-wrap; }
+#choices .list-group-item > button {
+  all: unset;
+  display: block; width: 100%; text-align: left; cursor: pointer;
+}
+#choices .list-group-item > button:focus { outline: 2px solid rgba(13,110,253,.5); }
