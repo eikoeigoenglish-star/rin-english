@@ -1,5 +1,3 @@
-import ALL_QUESTIONS from "./questions.js";
-
 const QUIZ_COUNT = 10;
 
 const $quizSection   = document.getElementById("quizSection");
@@ -12,46 +10,64 @@ const $scoreText     = document.getElementById("scoreText");
 const $reviewTBody   = document.getElementById("reviewTableBody");
 const $restartBtn    = document.getElementById("restartBtn");
 
+let ALL_QUESTIONS = [];
 let quiz = [];
 let answers = [];
 let idx = 0;
 
-// utils
-function shuffle(array) {
-  const a = array.slice();
-  for (let i = a.length - 1; i > 0; i--) {
+function setError(msg) {
+  $question.textContent = "エラー: " + msg;
+  $choices.innerHTML = "";
+  if ($nextBtn) $nextBtn.disabled = true;
+}
+
+function shuffle(a) {
+  const arr = a.slice();
+  for (let i = arr.length - 1; i > 0; i--) {
     const r = Math.floor(Math.random() * (i + 1));
-    [a[i], a[r]] = [a[r], a[i]];
+    [arr[i], arr[r]] = [arr[r], arr[i]];
   }
-  return a;
+  return arr;
 }
+function sample(a, n) { return shuffle(a).slice(0, n); }
 
-function sample(array, n) {
-  return shuffle(array).slice(0, n);
-}
-
-// build question set
 function buildQuizSet(pool, n) {
   const count = Math.min(n, pool.length);
   return sample(pool, count).map(q => {
+    if (!q || !Array.isArray(q.choices) || typeof q.answer !== "number") {
+      throw new Error("questions.js の形式が不正です");
+    }
     const indexed = q.choices.map((c, i) => ({ c, i }));
     const mixed = shuffle(indexed);
     const answerIndex = mixed.findIndex(x => x.i === q.answer);
-    return {
-      q: q.q,
-      choices: mixed.map(x => x.c),
-      answer: answerIndex,
-      exp: q.exp ?? ""
-    };
+    if (answerIndex < 0) throw new Error("answer が選択肢範囲外です");
+    return { q: q.q, choices: mixed.map(x => x.c), answer: answerIndex, exp: q.exp ?? "" };
   });
 }
 
-// ---- flow ----
-function init() {
-  quiz = buildQuizSet(ALL_QUESTIONS, QUIZ_COUNT);
+async function init() {
+  try {
+    const mod = await import("./questions.js?v=3");
+    ALL_QUESTIONS = mod.default;
+    if (!Array.isArray(ALL_QUESTIONS) || ALL_QUESTIONS.length === 0) {
+      throw new Error("questions.js が読み込めませんでした");
+    }
+  } catch (e) {
+    console.error(e);
+    setError("questions.js の読み込みに失敗しました: " + e.message);
+    return;
+  }
+
+  try {
+    quiz = buildQuizSet(ALL_QUESTIONS, QUIZ_COUNT);
+  } catch (e) {
+    console.error(e);
+    setError(e.message);
+    return;
+  }
+
   answers = Array(quiz.length).fill(null);
   idx = 0;
-
   $resultSection.classList.add("d-none");
   $quizSection.classList.remove("d-none");
   renderQuestion();
@@ -80,11 +96,8 @@ function renderQuestion() {
   $nextBtn.textContent = (idx + 1 === total) ? "結果を見る ▶" : "次へ ▶";
   $nextBtn.onclick = () => {
     idx++;
-    if (idx >= total) {
-      showResult();
-    } else {
-      renderQuestion();
-    }
+    if (idx >= total) showResult();
+    else renderQuestion();
   };
 }
 
@@ -105,31 +118,4 @@ function showResult() {
   $scoreText.textContent = `得点：${score} / ${total}`;
 
   $reviewTBody.innerHTML = "";
-  quiz.forEach((q, i) => {
-    const tr = document.createElement("tr");
-
-    const tdNo = document.createElement("td");
-    tdNo.textContent = i + 1;
-
-    const tdQ = document.createElement("td");
-    tdQ.textContent = q.q;
-
-    const tdAns = document.createElement("td");
-    tdAns.textContent = q.choices[q.answer];
-
-    const tdYour = document.createElement("td");
-    const yourIdx = answers[i];
-    tdYour.textContent = (yourIdx !== null) ? q.choices[yourIdx] : "未回答";
-
-    tr.appendChild(tdNo);
-    tr.appendChild(tdQ);
-    tr.appendChild(tdAns);
-    tr.appendChild(tdYour);
-
-    $reviewTBody.appendChild(tr);
-  });
-
-  $restartBtn.onclick = init;
-}
-
-document.addEventListener("DOMContentLoaded", init);
+  quiz.forEach((q,
