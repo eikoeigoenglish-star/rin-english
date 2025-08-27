@@ -1,4 +1,3 @@
-// データのみ：q=設問, choices=配列, answer=正解インデックス(0始まり)
 const QUESTIONS = [
   {
     q: "The editorial ____ the minister for his mendacious testimony, calling it an affront to parliamentary norms.",
