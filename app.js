@@ -77,30 +77,28 @@ function renderQuestion() {
 
   $choices.innerHTML = "";
   it.choices.forEach((text, i) => {
-  const li = document.createElement("li");
-  li.className = "list-group-item list-group-item-action";
-  const btn = document.createElement("button");
-  btn.className = "w-100 text-start";
-  btn.textContent = `${"ABCD"[i]}. ${text}`;
-  btn.addEventListener("click", () => onSelect(i, li));
-  li.appendChild(btn);
-  $choices.appendChild(li);
-});
+    const li  = document.createElement("li");
+    li.className = "list-group-item list-group-item-action";
+    const btn = document.createElement("button"); // 要件：button要素
+    btn.className = "w-100 text-start";
+    btn.textContent = `${"ABCD"[i]}. ${text}`;
+    btn.addEventListener("click", () => onSelect(i, li));   // ← li を渡す
+    li.appendChild(btn);
+    $choices.appendChild(li);
+  });
 
-$nextBtn.disabled = true;
-$nextBtn.textContent = (idx + 1 === total) ? "結果を見る ▶" : "次へ ▶";
-$nextWrap.classList.add('d-none');   // ★ 追加：非表示に
-$nextBtn.onclick = () => { idx++; renderQuestion(); };
+  $nextBtn.disabled = true;
+  $nextBtn.textContent = (idx + 1 === total) ? "結果を見る ▶" : "次へ ▶";
+  if ($nextWrap) $nextWrap.classList.add('d-none');
+
+  $nextBtn.onclick = () => { idx++; renderQuestion(); };
 }
 
 function onSelect(choiceIdx, selectedLi) {
-  if (answers[idx] !== null) return;
   answers[idx] = choiceIdx;
   document.querySelectorAll("#choices .list-group-item").forEach(li => li.classList.remove("active"));
   selectedLi.classList.add("active");
-  document.querySelectorAll("#choices button").forEach(b => b.disabled = true);
   $nextBtn.disabled = false;
-  const $nextWrap = $nextBtn.closest('.d-grid');
   if ($nextWrap) $nextWrap.classList.remove('d-none');
 }
 
