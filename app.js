@@ -41,4 +41,91 @@ function buildQuizSet(pool, n) {
     }
     const indexed = q.choices.map((c, i) => ({ c, i }));
     const mixed = shuffle(indexed);
-    const answerIndex = mixed.findIndex(x => x.i === q.answer
+    const answerIndex = mixed.findIndex(x => x.i === q.answer);
+    if (answerIndex < 0) throw new Error("answer が選択肢範囲外です");
+    return { q: q.q, choices: mixed.map(x => x.c), answer: answerIndex };
+  });
+}
+
+async function init() {
+  let ALL_QUESTIONS;
+  try {
+    const mod = await import(QUESTIONS_URL);
+    ALL_QUESTIONS = mod.default;
+    if (!Array.isArray(ALL_QUESTIONS)) throw new Error("default export が配列ではありません");
+  } catch (e) {
+    showError("questions.js の読み込み失敗（" + e.message + "）。URL: " + QUESTIONS_URL);
+    return;
+  }
+
+  try {
+    quiz = buildQuizSet(ALL_QUESTIONS, QUIZ_COUNT);
+  } catch (e) {
+    showError(e.message);
+    return;
+  }
+
+  answers = Array(quiz.length).fill(null);
+  idx = 0;
+  $resultSection.classList.add("d-none");
+  $quizSection.classList.remove("d-none");
+  renderQuestion();
+}
+
+function renderQuestion() {
+  const total = quiz.length;
+  if (idx >= total) return showResult();
+
+  const it = quiz[idx];
+  $progress.textContent = `Q${idx + 1} / ${total}`;
+  $question.textContent = it.q;
+
+  $choices.innerHTML = "";
+  it.choices.forEach((text, i) => {
+    const li = document.createElement("li");
+    li.className = "list-group-item";
+    const btn = document.createElement("button");
+    btn.className = "w-100 text-start";
+    btn.textContent = `${"ABCD"[i]}. ${text}`;
+    btn.addEventListener("click", () => onSelect(i));
+    li.appendChild(btn);
+    $choices.appendChild(li);
+  });
+
+  $nextBtn.disabled = true;
+  $nextBtn.textContent = (idx + 1 === total) ? "結果を見る ▶" : "次へ ▶";
+  $nextBtn.onclick = () => { idx++; renderQuestion(); };
+}
+
+function onSelect(choiceIdx) {
+  if (answers[idx] !== null) return;
+  answers[idx] = choiceIdx;
+  document.querySelectorAll("#choices button").forEach(b => b.disabled = true);
+  $nextBtn.disabled = false;
+}
+
+function showResult() {
+  const total = quiz.length;
+  const score = quiz.reduce((acc, q, i) => acc + (q.answer === answers[i] ? 1 : 0), 0);
+
+  $quizSection.classList.add("d-none");
+  $resultSection.classList.remove("d-none");
+
+  $scoreText.textContent = `得点：${score} / ${total}`;
+  $reviewTBody.innerHTML = "";
+  quiz.forEach((q, i) => {
+    const tr = document.createElement("tr");
+    tr.innerHTML = `
+      <td>${i + 1}</td>
+      <td>${q.q}</td>
+      <td>${q.choices[q.answer]}</td>
+      <td>${answers[i] != null ? q.choices[answers[i]] : "未回答"}</td>
+    `;
+    $reviewTBody.appendChild(tr);
+  });
+
+  $restartBtn.onclick = init;
+}
+
+if (document.readyState !== "loading") init();
+else document.addEventListener("DOMContentLoaded", init);
