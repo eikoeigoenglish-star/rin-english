@@ -1,6 +1,4 @@
 const QUIZ_COUNT = 10;
-const QUESTIONS_URL = "./questions.js?v=8";  // ←必ず最新番号に
-
 const $quizSection   = document.getElementById("quizSection");
 const $resultSection = document.getElementById("resultSection");
 const $progress      = document.getElementById("progress");
@@ -22,19 +20,19 @@ function showError(msg) {
   $nextBtn.disabled = true;
 }
 
-function shuffle(a) {
-  const arr = a.slice();
-  for (let i = arr.length - 1; i > 0; i--) {
+function shuffle(arr) {
+  const a = arr.slice();
+  for (let i = a.length - 1; i > 0; i--) {
     const r = Math.floor(Math.random() * (i + 1));
-    [arr[i], arr[r]] = [arr[r], arr[i]];
+    [a[i], a[r]] = [a[r], a[i]];
   }
-  return arr;
+  return a;
 }
-function sample(a, n) { return shuffle(a).slice(0, n); }
+function sample(arr, n) { return shuffle(arr).slice(0, n); }
 
 function buildQuizSet(pool, n) {
   const count = Math.min(n, pool.length);
-  if (!count) throw new Error("questions.js に有効な問題がありません");
+  if (!count) throw new Error("questions.js に問題がありません");
   return sample(pool, count).map(q => {
     if (!q || typeof q.q !== "string" || !Array.isArray(q.choices) || typeof q.answer !== "number") {
       throw new Error("questions.js の形式が不正です（q/choices/answer）");
@@ -47,14 +45,10 @@ function buildQuizSet(pool, n) {
   });
 }
 
-async function init() {
-  let ALL_QUESTIONS;
-  try {
-    const mod = await import(QUESTIONS_URL);
-    ALL_QUESTIONS = mod.default;
-    if (!Array.isArray(ALL_QUESTIONS)) throw new Error("default export が配列ではありません");
-  } catch (e) {
-    showError("questions.js の読み込み失敗（" + e.message + "）。URL: " + QUESTIONS_URL);
+function init() {
+  const ALL_QUESTIONS = window.QUIZ_QUESTIONS;
+  if (!Array.isArray(ALL_QUESTIONS) || ALL_QUESTIONS.length === 0) {
+    showError("questions.js が読み込めません（window.QUIZ_QUESTIONS が未定義）");
     return;
   }
 
@@ -98,8 +92,9 @@ function renderQuestion() {
 }
 
 function onSelect(choiceIdx) {
-  if (answers[idx] !== null) return;
+  if (answers[idx] !== null) return;   // 多重クリック防止
   answers[idx] = choiceIdx;
+
   document.querySelectorAll("#choices button").forEach(b => b.disabled = true);
   $nextBtn.disabled = false;
 }
@@ -112,6 +107,7 @@ function showResult() {
   $resultSection.classList.remove("d-none");
 
   $scoreText.textContent = `得点：${score} / ${total}`;
+
   $reviewTBody.innerHTML = "";
   quiz.forEach((q, i) => {
     const tr = document.createElement("tr");
