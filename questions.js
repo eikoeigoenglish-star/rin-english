@@ -101,4 +101,4 @@ const QUESTIONS = [
   }
 ];
 
-export default QUESTIONS;
+window.QUIZ_QUESTIONS = QUESTIONS;
