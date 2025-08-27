@@ -8,6 +8,7 @@ const $nextBtn       = document.getElementById("nextBtn");
 const $scoreText     = document.getElementById("scoreText");
 const $reviewTBody   = document.getElementById("reviewTableBody");
 const $restartBtn    = document.getElementById("restartBtn");
+const $nextWrap      = $nextBtn.closest('.d-grid');
 
 let quiz = [];
 let answers = [];
@@ -88,6 +89,7 @@ function renderQuestion() {
 
   $nextBtn.disabled = true;
   $nextBtn.textContent = (idx + 1 === total) ? "結果を見る ▶" : "次へ ▶";
+  $nextWrap.classList.add('d-none');   // ★ 追加：非表示に
   $nextBtn.onclick = () => { idx++; renderQuestion(); };
 }
 
@@ -97,6 +99,7 @@ function onSelect(choiceIdx) {
 
   document.querySelectorAll("#choices button").forEach(b => b.disabled = true);
   $nextBtn.disabled = false;
+  $nextWrap.classList.remove('d-none');
 }
 
 function showResult() {
