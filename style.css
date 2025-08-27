@@ -4,8 +4,10 @@
   display: block; width: 100%; text-align: left; cursor: pointer;
 }
 #choices .list-group-item > button:focus { outline: 2px solid rgba(13,110,253,.5); }
-html[data-bs-theme="dark"] .list-group-item.active {
-  background-color: rgba(var(--bs-primary-rgb), .25);
-  border-color: rgba(var(--bs-primary-rgb), .45);
+html[data-bs-theme="dark"] .list-group {
+  --bs-list-group-active-bg: rgba(var(--bs-primary-rgb), .22);
+  --bs-list-group-active-border-color: rgba(var(--bs-primary-rgb), .35);
+  --bs-list-group-active-color: var(--bs-body-color);
+  --bs-list-group-hover-bg: rgba(var(--bs-primary-rgb), .08);
 }
 
