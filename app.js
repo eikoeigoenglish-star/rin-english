@@ -1,5 +1,5 @@
 const QUIZ_COUNT = 10;
-const QUESTIONS_URL = "./questions.js?v=7";  // ←必ず最新番号に
+const QUESTIONS_URL = "./questions.js?v=8";  // ←必ず最新番号に
 
 const $quizSection   = document.getElementById("quizSection");
 const $resultSection = document.getElementById("resultSection");
