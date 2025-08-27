@@ -1,4 +1,21 @@
 const QUIZ_COUNT = 10;
+const QUESTIONS_URL = "./questions.js?v=7";
+
+async function init() {
+  try {
+    const mod = await import(QUESTIONS_URL);  // ← これで questions を確実に読む
+    const ALL_QUESTIONS = mod.default;
+    // 以降は既存ロジックのままでOK
+  } catch (e) {
+    document.getElementById("question").textContent =
+      "エラー: questions.js の読み込みに失敗しました";
+    console.error(e);
+    return;
+  }
+}
+// 既存の init 呼び出しはこのまま
+if (document.readyState !== "loading") init();
+else document.addEventListener("DOMContentLoaded", init);
 
 const $quizSection   = document.getElementById("quizSection");
 const $resultSection = document.getElementById("resultSection");
