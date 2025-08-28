@@ -248,6 +248,106 @@ const QUESTIONS = [
     q: "The findings remain (　　　) until replicated independently.",
     choices: ["providential", "probiotic", "probative", "provisional"],
     answer: 3
+  },
+  {
+    q: "After an hour of (　　　), the negotiators still hadn’t addressed the core issue.",
+    choices: ["palaver", "panoply", "palimpsest", "panegyric"],
+    answer: 0
+  },
+  {
+    q: "The predatory app (　　　) users with hidden fees.",
+    choices: ["moot", "mulch", "molt", "mulct"],
+    answer: 3
+  },
+  {
+    q: "His remark was pure (　　　)—a baseless smear.",
+    choices: ["calumny", "euphony", "alimony", "parsimony"],
+    answer: 0
+  },
+  {
+    q: "The doctrine has fallen into (　　　) and is rarely taught.",
+    choices: ["desuetude", "destitution", "despotism", "derring-do"],
+    answer: 0
+  },
+  {
+    q: "He tried to (　　　) the witness into changing his story.",
+    choices: ["adorn", "abjure", "ascribe", "suborn"],
+    answer: 3
+  },
+  {
+    q: "The spokesperson (　　　) that no funds had been misused.",
+    choices: ["asseverated", "insinuated", "vacillated", "prevaricated"],
+    answer: 0
+  },
+  {
+    q: "An (　　　) rule would force every case into one template.",
+    choices: ["procrustean", "protean", "proustian", "proletarian"],
+    answer: 0
+  },
+  {
+    q: "Her account was so (　　　) that even experts struggled to follow.",
+    choices: ["recondite", "redolent", "recrudescent", "refulgent"],
+    answer: 0
+  },
+  {
+    q: "We must (　　　) the invasive species before it spreads.",
+    choices: ["extirpate", "extol", "extrapolate", "expatiate"],
+    answer: 0
+  },
+  {
+    q: "The memo’s (　　　) tone—barking orders—alienated allies.",
+    choices: ["hectoring", "halting", "heraldic", "helical"],
+    answer: 0
+  },
+  {
+    q: "He led an (　　　) life, shunning excess.",
+    choices: ["abstemious", "absonant", "abstruse", "abstractive"],
+    answer: 0
+  },
+  {
+    q: "The document contained a serious (　　　)—the primary data were missing.",
+    choices: ["lacuna", "lacustrine", "laconicism", "lacrimal"],
+    answer: 0
+  },
+  {
+    q: "The disease proved (　　　) to treatment.",
+    choices: ["refractory", "reparative", "referential", "rebarbative"],
+    answer: 0
+  },
+  {
+    q: "The letter was larded with (　　　) flattery.",
+    choices: ["oleaginous", "obdurate", "obsequies", "oblate"],
+    answer: 0
+  },
+  {
+    q: "His statement was a (　　　) of half-truths.",
+    choices: ["farrago", "farthing", "ferrule", "farinaceous"],
+    answer: 0
+  },
+  {
+    q: "The board moved to (　　　) the two units into a single division.",
+    choices: ["amalgamate", "ameliorate", "amortize", "ambuscade"],
+    answer: 0
+  },
+  {
+    q: "Her (　　　) philanthropy drew praise even from critics.",
+    choices: ["munificent", "mendicant", "malodorous", "multifarious"],
+    answer: 0
+  },
+  {
+    q: "Their testimony was riddled with (　　　), not mere mistakes.",
+    choices: ["mendacity", "mendicancy", "mendelism", "mendicity"],
+    answer: 0
+  },
+  {
+    q: "The byzantine rules seem designed to (　　　) would-be claimants with procedural traps.",
+    choices: ["enshrine", "enjoin", "enthrall", "ensnare"],
+    answer: 3
+  },
+  {
+    q: "He treated the archive as a mere (　　　), mining it for slogans.",
+    choices: ["quarry", "quorum", "querulous", "quorate"],
+    answer: 0
   }
 ];
 
