@@ -348,6 +348,176 @@ const QUESTIONS = [
     q: "He treated the archive as a mere (　　　), mining it for slogans.",
     choices: ["quarry", "quorum", "querulous", "quorate"],
     answer: 0
+  },
+  {
+    q: "As the CFO, forensic audits fell squarely within her (　　　).",
+    choices: ["bailiff", "bailiwick", "bailout", "bailey"],
+    answer: 1
+  },
+  {
+    q: "The startup was run as a (　　　)—two co-CEOs shared power.",
+    choices: ["oligarchy", "hegemony", "duumvirate", "monopsony"],
+    answer: 2
+  },
+  {
+    q: "Everything is (　　　)—permits cleared and funds secured.",
+    choices: ["copacetic", "taciturn", "meretricious", "inchoate"],
+    answer: 0
+  },
+  {
+    q: "By dawn, the forum was (　　　) with rumors.",
+    choices: ["atwitter", "askance", "awry", "aground"],
+    answer: 0
+  },
+  {
+    q: "The analysis was admirably (　　　)—nothing extraneous got in the way.",
+    choices: ["pelagic", "pellagra", "pellucid", "pellicle"],
+    answer: 2
+  },
+  {
+    q: "His anger soon gave way to (　　　) joy.",
+    choices: ["alloy", "ungulate", "unalloyed", "unrelated"],
+    answer: 2
+  },
+  {
+    q: "She offered a (　　　) summary: six bullet points, no fluff.",
+    choices: ["lappet", "laparotomy", "lapidary", "lapidation"],
+    answer: 2
+  },
+  {
+    q: "The watchdog (　　　) the agency for its dereliction.",
+    choices: ["extirpated", "excoriated", "exonerated", "exfoliated"],
+    answer: 1
+  },
+  {
+    q: "The rumor proved (　　　)—no source, no evidence.",
+    choices: ["apocryphal", "apostolic", "apical", "apoplectic"],
+    answer: 0
+  },
+  {
+    q: "Their (　　　) adherence to protocol likely prevented a mishap.",
+    choices: ["pugnacious", "punctilious", "palliative", "penurious"],
+    answer: 1
+  },
+  {
+    q: "The canvas revels in (　　　)—faces emerging from darkness.",
+    choices: ["chiaroscuro", "guacamole", "catenary", "coloratura"],
+    answer: 0
+  },
+  {
+    q: "Auditors uncovered a (　　　) of shell companies.",
+    choices: ["congener", "congeniality", "congeries", "consommé"],
+    answer: 2
+  },
+  {
+    q: "His career reached its (　　　) with the Nobel.",
+    choices: ["apoplexy", "apologia", "apogee", "aperture"],
+    answer: 2
+  },
+  {
+    q: "The board issued a (　　　): comply by Friday or resign.",
+    choices: ["dictum", "dike", "dioxin", "diktat"],
+    answer: 3
+  },
+  {
+    q: "Her tone turned (　　　) when challenged—bristling and combative.",
+    choices: ["truculent", "torpid", "tactile", "tumid"],
+    answer: 0
+  },
+  {
+    q: "Her remarks were (　　　) to the motion at hand.",
+    choices: ["Germanic", "germane", "Germaine", "germinate"],
+    answer: 1
+  },
+  {
+    q: "The report is a (　　　) of half-truths and evasions.",
+    choices: ["farrago", "farina", "ferrule", "furlough"],
+    answer: 0
+  },
+  {
+    q: "The charity’s books were (　　　) behind layers of trusts.",
+    choices: ["objectified", "obfuscated", "obviated", "obligated"],
+    answer: 1
+  },
+  {
+    q: "The measures were largely (　　　)—symbolic gestures without effect.",
+    choices: ["nugatory", "nuggety", "nugacity", "nugget"],
+    answer: 0
+  },
+  {
+    q: "He delivered a (　　　) refusal: “No, and that’s final.”",
+    choices: ["peremptory", "perfunctory", "perfidious", "perfervid"],
+    answer: 0
+  },
+  {
+    q: "After the exposé, he faced public (　　　).",
+    choices: ["obloquy", "obsequy", "obduracy", "obfuscation"],
+    answer: 0
+  },
+  {
+    q: "She projected a (　　　) calm that unnerved opponents.",
+    choices: ["preternatural", "prelapsarian", "preprandial", "precarious"],
+    answer: 0
+  },
+  {
+    q: "The coalition soon descended into (　　　), splitting along regional lines.",
+    choices: ["balkanization", "beatification", "bacteriology", "balkanize"],
+    answer: 0
+  },
+  {
+    q: "Legally, the unsigned agreement was a mere (　　　).",
+    choices: ["nullity", "nulliparity", "null set", "null vector"],
+    answer: 0
+  },
+  {
+    q: "His views are an (　　　) from the 19th century.",
+    choices: ["atavism", "activism", "autism", "atrium"],
+    answer: 0
+  },
+  {
+    q: "The intern’s (　　　) questions impressed the panel.",
+    choices: ["perspicacious", "perspicuity", "perspective", "perspiring"],
+    answer: 0
+  },
+  {
+    q: "The lecture was so (　　　) that half the class nodded off.",
+    choices: ["soporific", "sonorous", "salutary", "salacious"],
+    answer: 0
+  },
+  {
+    q: "The policy invited (　　　) comparisons between regions.",
+    choices: ["insidious", "invidious", "invidiae", "invidiousness"],
+    answer: 1
+  },
+  {
+    q: "His prose was (　　　) of old London—coal smoke and rain.",
+    choices: ["redolent", "reticent", "refulgent", "risible"],
+    answer: 0
+  },
+  {
+    q: "Interviewers found the candidate perfectly (　　　): schedule set, paperwork done.",
+    choices: ["copacetic", "copic", "coppery", "copulative"],
+    answer: 0
+  },
+  {
+    q: "Party leaders sought to (　　　) the map to entrench incumbents.",
+    choices: ["filibuster", "gerrymander", "canvass", "disenfranchise"],
+    answer: 1
+  },
+  {
+    q: "Stop sitting in a (　　　) and choose.",
+    choices: ["dither", "panegyric", "jeremiad", "aporia"],
+    answer: 0
+  },
+  {
+    q: "The closing chapter reads like a (　　　) to science.",
+    choices: ["paean", "diatribe", "jeremiad", "threnody"],
+    answer: 0
+  },
+  {
+    q: "Rinse thoroughly; the glass is still (　　　).",
+    choices: ["sudsy", "sandy", "sooty", "sinewy"],
+    answer: 0
   }
 ];
 
